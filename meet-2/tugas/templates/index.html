@@ -1,0 +1,25 @@
+{% extends 'layout.html' %} {% block head %}
+
+<title>Home Page</title>
+
+{% endblock %} {% block body %}
+<div
+  class="container d-flex justify-content-between align-items-center vh-100 flex-row"
+>
+  <div class="card" style="width: 18rem">
+    <img
+      src="{{ url_for('static', filename='images/profile.png') }}"
+      class="card-img-top"
+      alt="..."
+    />
+    <div class="card-body">
+      <h2 class="card-text">Muhammad Zaki As Shidiqi</h2>
+      <p class="card-text">5240411230</p>
+      <button class="btn btn-secondary">See Github</button>
+    </div>
+  </div>
+  <div>
+    <h2>Developer</h2>
+  </div>
+</div>
+{% endblock %}
