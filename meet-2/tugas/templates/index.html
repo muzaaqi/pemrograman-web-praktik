@@ -1,25 +1,100 @@
-{% extends 'layout.html' %} {% block head %}
+{% import 'components.html' as c %} {% extends 'layout.html' %} {% block head %}
 
 <title>Home Page</title>
 
 {% endblock %} {% block body %}
 <div
-  class="container d-flex justify-content-between align-items-center vh-100 flex-row"
+  class="container d-flex justify-content-between align-items-center vh-80 flex-row"
 >
-  <div class="card" style="width: 18rem">
+  <div class="w-50 d-flex flex-column align-items-end">
     <img
       src="{{ url_for('static', filename='images/profile.png') }}"
-      class="card-img-top"
-      alt="..."
+      alt="Profile Picture"
+      class="w-100"
+      style=""
     />
-    <div class="card-body">
-      <h2 class="card-text">Muhammad Zaki As Shidiqi</h2>
-      <p class="card-text">5240411230</p>
-      <button class="btn btn-secondary">See Github</button>
+  </div>
+  <div class="w-50 d-flex flex-column align-items-center">
+    <div>
+      <h1 class="" style="font-size: 3rem; font-weight: bold">I'm a</h1>
+      <h2>Developer</h2>
+      <h1 class="" style="font-size: 6rem; font-weight: bold">Student</h1>
+      <h2 class="" style="font-size: 4rem">Streamer</h2>
     </div>
   </div>
-  <div>
-    <h2>Developer</h2>
+</div>
+<div class="bg-dark text-white p-5">
+  <h1 class="text-center">Skills</h1>
+  <div class="d-flex justify-content-center align-items-center gap-5 mt-4">
+    {{ c.Icon('js', size=40, color='#c6c6c6ff') }}
+    {{ c.Icon('ts', size=42, color='#c6c6c6ff') }}
+    {{ c.Icon('react', size=44, color='#c6c6c6ff') }}
+    {{ c.Icon('nextjs', size=46, color='#c6c6c6ff') }}
+    {{ c.Icon('express', size=48, color='#c6c6c6ff') }}
+    {{ c.Icon('py', size=50, color='#c6c6c6ff') }}
+    {{ c.Icon('postgresql', size=52, color='#c6c6c6ff') }}
+    {{ c.Icon('tailwind', size=54, color='#c6c6c6ff') }}
+    {{ c.Icon('nodejs', size=56, color='#c6c6c6ff') }}
+  </div>
+</div>
+<div class="p-5">
+  <h1 class="text-center">Projects</h1>
+  <div class="d-flex flex-wrap justify-content-center align-items-center gap-4 mt-4">
+    {{ c.Components(
+      name='card', 
+      title='Inventory App', 
+      desc='A simple inventory management app built with Flask', 
+      img_url=url_for('static', filename='images/project-1.png'),
+      btn_url='#',
+      btn_text='View Project'
+    ) }}
+    {{ c.Components(
+      name='card', 
+      title='Inventory App', 
+      desc='A simple inventory management app built with Flask', 
+      img_url=url_for('static', filename='images/project-1.png'),
+      btn_url='#',
+      btn_text='View Project'
+    ) }}
+    {{ c.Components(
+      name='card', 
+      title='Inventory App', 
+      desc='A simple inventory management app built with Flask', 
+      img_url=url_for('static', filename='images/project-1.png'),
+      btn_url='#',
+      btn_text='View Project'
+    ) }}
+    {{ c.Components(
+      name='card', 
+      title='Inventory App',
+      desc='A simple inventory management app built with Flask', 
+      img_url=url_for('static', filename='images/project-1.png'),
+      btn_url='#',
+      btn_text='View Project',
+    ) }}
+  </div>
+</div>
+
+<div class="bg-dark text-white p-5">
+  <h1 class="text-center">Contact Me</h1>
+  <div class="container">
+    <div class="card" style="width: 18rem;">
+      <img src="{{ url_for('static', filename='images/profile-p.png') }}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h2 class="card-text text-center" style="font-weight: bold; font-size: 1.5rem;">MUZAAQI</h2>
+        <p class="card-text text-center">5240411230</p>
+      </div>
+    </div>
   </div>
 </div>
 {% endblock %}
+
+{{ c.Icon('js', size=40, color='#F0DB4F') }}
+{{ c.Icon('ts', size=42, color='#007acc') }}
+{{ c.Icon('react', size=44, color='#61DAFB') }}
+{{ c.Icon('nextjs', size=46, color='#ffffffff') }}
+{{ c.Icon('express', size=48, color='#ffffffff') }}
+{{ c.Icon('py', size=50, color='#c6c6c6ff') }}
+{{ c.Icon('postgresql', size=52, color='#c6c6c6ff') }}
+{{ c.Icon('tailwind', size=54, color='#38bdf8') }}
+{{ c.Icon('nodejs', size=56, color='#5fa04e') }}
