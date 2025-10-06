@@ -1,0 +1,191 @@
+{% import 'components.html' as c %} {% extends 'layout.html' %} {% block head %}
+
+<title>Home Page</title>
+
+{% endblock %} {% block body %}
+<div
+  id="home"
+  class="container d-md-flex position-sm-relative position-md-fixed align-items-center justify-content-center vh-80"
+>
+  <div class="w-50 d-flex flex-column align-items-center">
+    <div>
+      <h1 class="" style="font-size: 3rem; font-weight: bold">I'm a</h1>
+      <h2>Web Developer</h2>
+      <h1 class="" style="font-size: 6rem; font-weight: bold">Student</h1>
+      <h2 class="" style="font-size: 4rem">Streamer</h2>
+    </div>
+  </div>
+  <div
+    class="w-50 d-md-flex flex-column position-sm-absolute position-md-fixed bottom-0 align-items-end"
+  >
+    <img
+      src="{{ url_for('static', filename='images/profile.png') }}"
+      alt="Profile Picture"
+      class="w-100"
+      style=""
+    />
+  </div>
+  <div class="w-50 d-flex flex-column align-items-center">
+    <div>
+      <h1 class="" style="font-size: 3rem; font-weight: bold">I'm a</h1>
+      <h2>Web Developer</h2>
+      <h1 class="" style="font-size: 6rem; font-weight: bold">Student</h1>
+      <h2 class="" style="font-size: 4rem">Streamer</h2>
+    </div>
+  </div>
+</div>
+<div id="skills" class="bg-dark text-white p-5">
+  <h1 class="text-center">Skills</h1>
+  <div class="d-flex justify-content-center align-items-baseline gap-5 mt-4">
+    <div
+      class="d-flex flex-wrap gap-5"
+      data-aos="fade-right"
+      data-aos-duration="800"
+    >
+      <div class="icon-wrapper icon-js">
+        {{ c.Icon('js', size=40, color='#c6c6c6ff') }}
+      </div>
+      <div class="icon-wrapper icon-ts">
+        {{ c.Icon('ts', size=40, color='#c6c6c6ff') }}
+      </div>
+      <div class="icon-wrapper icon-react">
+        {{ c.Icon('react', size=44, color='#c6c6c6ff') }}
+      </div>
+      <div class="icon-wrapper icon-nextjs">
+        {{ c.Icon('nextjs', size=40, color='#c6c6c6ff') }}
+      </div>
+      <div class="icon-wrapper icon-express">
+        {{ c.Icon('express', size=48, color='#c6c6c6ff') }}
+      </div>
+    </div>
+    <div
+      class="icon-wrapper icon-py"
+      data-aos="zoom-in"
+      data-aos-duration="800"
+    >
+      {{ c.Icon('py', size=40, color='#c6c6c6ff') }}
+    </div>
+    <div
+      class="d-flex flex-wrap gap-5"
+      data-aos="fade-left"
+      data-aos-duration="800"
+    >
+      <div class="icon-wrapper icon-postgresql">
+        {{ c.Icon('postgresql', size=40, color='#c6c6c6ff') }}
+      </div>
+      <div class="icon-wrapper icon-supabase">
+        {{ c.Icon('supabase', size=40, color='#c6c6c6ff') }}
+      </div>
+      <div class="icon-wrapper icon-tailwind">
+        {{ c.Icon('tailwind', size=40, color='#c6c6c6ff') }}
+      </div>
+      <div class="icon-wrapper icon-nodejs">
+        {{ c.Icon('nodejs', size=40, color='#c6c6c6ff') }}
+      </div>
+      <div class="icon-wrapper icon-bun">
+        {{ c.Icon('bun', size=40, color='#c6c6c6ff') }}
+      </div>
+    </div>
+  </div>
+</div>
+<div id="projects" class="px-3 py-5">
+  <h1 class="text-center">Projects</h1>
+  <div
+    class="d-flex flex-wrap justify-content-center align-items-center gap-4 mt-5"
+  >
+    {{ c.Components( name='card', title='Inventory App', desc='A simple
+    inventory management app built with Flask', img_url=url_for('static',
+    filename='images/project-1.png'), btn_url='#', btn_text='View Project' ) }}
+    {{ c.Components( name='card', title='Inventory App', desc='A simple
+    inventory management app built with Flask', img_url=url_for('static',
+    filename='images/project-1.png'), btn_url='#', btn_text='View Project' ) }}
+    {{ c.Components( name='card', title='Inventory App', desc='A simple
+    inventory management app built with Flask', img_url=url_for('static',
+    filename='images/project-1.png'), btn_url='#', btn_text='View Project' ) }}
+    {{ c.Components( name='card', title='Inventory App', desc='A simple
+    inventory management app built with Flask', img_url=url_for('static',
+    filename='images/project-1.png'), btn_url='#', btn_text='View Project', ) }}
+  </div>
+</div>
+
+<div id="about" class="bg-dark text-white p-5">
+  <h1 class="text-center">About Me</h1>
+  <div
+    class="container mt-5 d-md-flex gap-5 justify-content-center align-items-center"
+  >
+    <div
+      class="mb-3 d-flex justify-content-center px-4"
+      data-aos="fade-right"
+      data-aos-duration="800"
+    >
+      <div class="card" style="width: 20rem">
+        <img
+          src="{{ url_for('static', filename='images/profile-p.png') }}"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <h2
+            class="card-text text-center"
+            style="font-weight: bold; font-size: 1.5rem"
+          >
+            Muhammad Zaki<br />As Shidiqi
+          </h2>
+          <h3
+            class="text-center text-secondary"
+            style="font-weight: semibold; font-size: 0.85rem"
+          >
+            Universitas Teknologi Yogyakarta
+          </h3>
+          <p class="card-text text-center">5240411230</p>
+        </div>
+      </div>
+    </div>
+    <form
+      class="mb-3 w-100 p-4 bg-body-tertiary rounded gap-3 d-flex flex-column"
+      data-aos="fade-left"
+      data-aos-duration="800"
+    >
+      <h2
+        class="text-center text-dark"
+        style="font-weight: bold; font-size: 1.5rem"
+      >
+        Contact Me
+      </h2>
+      <div>
+        <label for="exampleFormControlInput1" class="form-label text-dark"
+          >Name</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          id="exampleFormControlInput1"
+          placeholder="Your Name"
+        />
+      </div>
+      <div>
+        <label for="exampleFormControlInput1" class="form-label text-dark"
+          >E-mail</label
+        >
+        <input
+          type="email"
+          class="form-control"
+          id="exampleFormControlInput1"
+          placeholder="name@example.com"
+        />
+      </div>
+      <div>
+        <label for="exampleFormControlTextarea1" class="form-label text-dark"
+          >Message</label
+        >
+        <textarea
+          class="form-control"
+          id="exampleFormControlTextarea1"
+          rows="3"
+        ></textarea>
+      </div>
+      <button type="submit" class="btn btn-dark mt-3 w-100">Submit</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

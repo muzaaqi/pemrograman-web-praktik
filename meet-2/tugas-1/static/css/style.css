@@ -1,0 +1,43 @@
+.icon-wrapper svg {
+  transition: transform 0.3s ease, fill 0.3s ease;
+}
+
+/* Efek hover umum */
+.icon-wrapper:hover svg {
+  transform: scale(1.2);
+}
+
+/* Warna hover spesifik untuk tiap icon */
+.icon-js:hover svg {
+  fill: #f0db4f;
+}
+.icon-ts:hover svg {
+  fill: #007acc;
+}
+.icon-react:hover svg {
+  fill: #61dafb;
+}
+.icon-nextjs:hover svg {
+  fill: #ffffff;
+}
+.icon-express:hover svg {
+  fill: #ffffff;
+}
+.icon-py:hover svg {
+  fill: #3776ab;
+}
+.icon-postgresql:hover svg {
+  fill: #336791;
+}
+.icon-supabase:hover svg {
+  fill: #3ecf8e;
+}
+.icon-tailwind:hover svg {
+  fill: #38bdf8;
+}
+.icon-nodejs:hover svg {
+  fill: #5fa04e;
+}
+.icon-bun:hover svg {
+  fill: #fbf0df;
+}

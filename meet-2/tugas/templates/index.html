@@ -1,117 +1,62 @@
 {% import 'components.html' as c %} {% extends 'layout.html' %} {% block head %}
 
-<title>Home Page</title>
+<title>MUZAAQI</title>
 
 {% endblock %} {% block body %}
 <div
-  id="home" class="container d-flex justify-content-between align-items-center vh-80 flex-row"
+  id="home"
+  class="d-md-flex position-relative align-items-center justify-content-center vh-100 overflow-hidden"
 >
-  <div class="w-50 d-flex flex-column align-items-end">
+  <div
+    class="position-absolute top-50 start-50 translate-middle text-center text-uppercase"
+    style="z-index: 1; color: rgba(0, 0, 0, 0.08); font-weight: 900;"
+  >
+    <h1 class="animate__animated animate__bounceInLeft" style="font-size: 10rem;">Muhammad</h1>
+    <h1 class="animate__animated animate__bounceInRight" style="font-size: 20rem;">Zaki</h1>
+    <h1 class="animate__animated animate__bounceInLeft" style="font-size: 10rem;">As Shidiqi</h1>
+  </div>
+  <div class="position-relative z-2 animate__animated animate__bounceIn aminate__delay-1s">
     <img
       src="{{ url_for('static', filename='images/profile.png') }}"
       alt="Profile Picture"
-      class="w-100"
-      style=""
+      class="img-fluid rounded-circle shadow-lg"
+      style="width: 400px; object-fit: cover;"
     />
   </div>
-  <div class="w-50 d-flex flex-column align-items-center">
-    <div>
-      <h1 class="" style="font-size: 3rem; font-weight: bold">I'm a</h1>
-      <h2>Developer</h2>
-      <h1 class="" style="font-size: 6rem; font-weight: bold">Student</h1>
-      <h2 class="" style="font-size: 4rem">Streamer</h2>
-    </div>
-  </div>
-</div>
-<div id="skills" class="bg-dark text-white p-5">
-  <h1 class="text-center">Skills</h1>
-  <div class="d-flex justify-content-center align-items-center gap-5 mt-4">
-    {{ c.Icon('js', size=40, color='#c6c6c6ff') }}
-    {{ c.Icon('ts', size=42, color='#c6c6c6ff') }}
-    {{ c.Icon('react', size=44, color='#c6c6c6ff') }}
-    {{ c.Icon('nextjs', size=46, color='#c6c6c6ff') }}
-    {{ c.Icon('express', size=48, color='#c6c6c6ff') }}
-    {{ c.Icon('py', size=50, color='#c6c6c6ff') }}
-    {{ c.Icon('postgresql', size=52, color='#c6c6c6ff') }}
-    {{ c.Icon('tailwind', size=54, color='#c6c6c6ff') }}
-    {{ c.Icon('nodejs', size=56, color='#c6c6c6ff') }}
-  </div>
-</div>
-<div id="projects" class="p-5">
-  <h1 class="text-center">Projects</h1>
-  <div class="d-flex flex-wrap justify-content-center align-items-center gap-4 mt-5">
-    {{ c.Components(
-      name='card', 
-      title='Inventory App', 
-      desc='A simple inventory management app built with Flask', 
-      img_url=url_for('static', filename='images/project-1.png'),
-      btn_url='#',
-      btn_text='View Project'
-    ) }}
-    {{ c.Components(
-      name='card', 
-      title='Inventory App', 
-      desc='A simple inventory management app built with Flask', 
-      img_url=url_for('static', filename='images/project-1.png'),
-      btn_url='#',
-      btn_text='View Project'
-    ) }}
-    {{ c.Components(
-      name='card', 
-      title='Inventory App', 
-      desc='A simple inventory management app built with Flask', 
-      img_url=url_for('static', filename='images/project-1.png'),
-      btn_url='#',
-      btn_text='View Project'
-    ) }}
-    {{ c.Components(
-      name='card', 
-      title='Inventory App',
-      desc='A simple inventory management app built with Flask', 
-      img_url=url_for('static', filename='images/project-1.png'),
-      btn_url='#',
-      btn_text='View Project',
-    ) }}
-  </div>
 </div>
 
-<div id="contact" class="bg-dark text-white p-5">
-  <h1 class="text-center">Contact Me</h1>
-  <div class="container mt-5 d-flex gap-5 justify-content-center align-items-center">
-    <div class="mb-3 d-flex justify-content-center px-4">
-      <div class="card" style="width: 18rem;">
-        <img src="{{ url_for('static', filename='images/profile-p.png') }}" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h2 class="card-text text-center" style="font-weight: bold; font-size: 1.5rem;">Muhammad Zaki<br>As Shidiqi</h2>
-          <p class="card-text text-center">5240411230</p>
-        </div>
+<section id="about" class="bg-dark text-white py-5 position-relative">
+  <div class="container text-center">
+    <div class="d-flex flex-column align-items-center gap-4">
+      <div>
+        <h3 class="fw-semibold text-uppercase mb-2">Student ID</h3>
+        <p class="fs-5 text-secondary mb-0">5240411230</p>
+      </div>
+
+      <div>
+        <h3 class="fw-semibold text-uppercase mb-2">Current Education</h3>
+        <p class="fs-5 text-secondary mb-0">
+          Undergraduate Student of Informatics Engineering, Semester 3
+        </p>
+      </div>
+      <div>
+        <h3 class="fw-semibold text-uppercase mb-2">Address</h3>
+        <p class="fs-5 text-secondary mb-0">Purworejo</p>
+      </div>
+      <div class="d-flex gap-5">
+        {{ c.Icon("instagram", size=24, url="https://instagram.com/muzaaqi_/") }}
+        {{ c.Icon("youtube", size=24, url="https://youtube.com/@muzaaqi_") }}
+        {{ c.Icon("github", size=24, url="https://github.com/muzaaqi") }}
+        {{ c.Icon("discord", size=24, url="https://discord.com/users/494420968492761089") }}
+        {{ c.Icon("linkedin", size=24, url="https://linkedin.com/in/muzaaqi/") }}
       </div>
     </div>
-    <form class="mb-3 w-50 p-4 bg-secondary rounded">
-      <div>
-        <label for="exampleFormControlInput1" class="form-label">Name</label>
-        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Your Name">
-      </div>
-      <div>
-        <label for="exampleFormControlInput1" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-      </div>
-      <div>
-        <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary mt-3 w-100">Submit</button>
-    </form>
+    <div
+      class="position-absolute top-0 start-50 translate-middle-x opacity-10"
+      style="font-size: 10rem; font-weight: 800; color: rgba(255, 255, 255, 0.05); pointer-events: none;"
+    >
+      PROFILE
+    </div>
   </div>
-</div>
+</section>
 {% endblock %}
-
-{{ c.Icon('js', size=40, color='#F0DB4F') }}
-{{ c.Icon('ts', size=42, color='#007acc') }}
-{{ c.Icon('react', size=44, color='#61DAFB') }}
-{{ c.Icon('nextjs', size=46, color='#ffffffff') }}
-{{ c.Icon('express', size=48, color='#ffffffff') }}
-{{ c.Icon('py', size=50, color='#c6c6c6ff') }}
-{{ c.Icon('postgresql', size=52, color='#c6c6c6ff') }}
-{{ c.Icon('tailwind', size=54, color='#38bdf8') }}
-{{ c.Icon('nodejs', size=56, color='#5fa04e') }}
