@@ -1,0 +1,29 @@
+{% extends 'layout.html' %} {% block head %}
+<title>Koneksi Flask dan MySQL</title>
+{% endblock %} {% block body %}
+<div class="container mt-3">
+  <h1 class="mb-3">Flask dan MySQL</h1>
+  <div class="mb-3">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Username</th>
+          <th>Password</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in users %}
+        <tr>
+          <th scope="row">{{ row.0 }}</th>
+          <td>{{ row.1 }}</td>
+          <td>{{ row.2 }}</td>
+          <td>{{ row.3 }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% endblock %}
+</div>
