@@ -1,0 +1,40 @@
+{% import 'components.html' as c %}
+{% extends 'layout.html' %}
+
+{% block head %}
+<title>Login Page</title>
+{% endblock %}
+
+{% block body %}
+<div class="mt-5">
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <div class="card">
+        <div class="card-header">
+          <h2 class="text-center">Login</h2>
+        </div>
+        <div class="card-body">
+          <form method="POST">
+            <div>
+              <label class="form-label">Email Address</label>
+              <input type="email" name="inpEmail" class="form-control" required>
+            </div>
+            <div>
+              <label class="form-label">Password</label>
+              <input type="password" name="inpPass" class="form-control" required>
+            </div>
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary mt-4">Login</button>
+            </div>
+            {% if error %}
+            <div class="mt-4 ">
+              {{ c.components('alert', error)}}
+            </div>
+            {% endif %}
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
