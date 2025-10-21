@@ -1,0 +1,56 @@
+{% extends 'layout.html' %} {% block head %}
+<title>Login Page</title>
+{% endblock %} {% block body %}
+<div class="flex container mx-auto justify-center items-center h-screen">
+  <div class="bg-white p-8 rounded-md shadow-md space-y-5">
+    <h1 class="text-3xl text-zinc-700 font-bold text-center">Login</h1>
+    <form method="POST" class="space-y-5">
+      <div class="relative">
+        <input
+          type="email"
+          id="email"
+          class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-zinc-700 peer"
+          placeholder=" "
+          name="inpEmail"
+        />
+        <label
+          for="email"
+          class="absolute text-sm text-gray-500 tansition-all duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-zinc-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1 hover:cursor-text"
+          >Email</label
+        >
+      </div>
+      <div class="relative">
+        <input
+          type="password"
+          id="password"
+          class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-zinc-700 peer"
+          placeholder=" "
+          name="inpPass"
+        />
+        <label
+          for="password"
+          class="absolute text-sm text-gray-500 tansition-all duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-zinc-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1 hover:cursor-text"
+          >Password</label
+        >
+      </div>
+      <div class="text-center">
+        {% if error %}
+        <span class="text-red-500 text-sm">{{ error }}</span>
+        {% endif %}
+      </div>
+      <div class="text-center">
+        <button
+          type="submit"
+          class="w-full bg-zinc-700 text-white p-2 rounded-md hover:bg-zinc-600 hover:cursor-pointer transition-all duration-300"
+        >
+          Login
+        </button>
+        <span class="text-gray-400 text-sm"
+          >Don't have an account?
+          <a href="/register" class="text-zinc-700">Register</a></span
+        >
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

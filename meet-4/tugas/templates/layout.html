@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    {% block head%} {% endblock %}
+  </head>
+  <body class="bg-slate-50 min-h-dvh">
+    <nav class="flex justify-between items-center p-5 sticky top-0">
+      <div class="flex items-center gap-4">
+        {% if user_data %}
+        <img
+          class="w-10 h-10 rounded-full"
+          src="{{ url_for('static', filename='images/default_avatar.svg') }}"
+          alt=""
+        />
+        <div class="flex flex-col">
+          <h1 class="text-2xl font-bold text-zinc-700">{{ user_data[0] }}</h1>
+          <p class="text-zinc-500 text-sm">{{ user_data[1] }}</p>
+        </div>
+        {% endif %}
+      </div>
+      <div>
+        {% if user_data %}
+        <a
+          href="/logout"
+          class="bg-zinc-700 text-white px-4 py-2 rounded-full hover:bg-zinc-600 transition-all duration-300"
+          >Logout</a
+        >
+        {% endif %}
+      </div>
+    </nav>
+    {% block body%} {% endblock %}
+  </body>
+</html>

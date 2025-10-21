@@ -1,0 +1,33 @@
+{% extends 'layout.html' %} {% block head %}
+<title>Home</title>
+{% endblock %} {% block body %}
+<div class="mt-5 container max-w-3xl mx-auto">
+  <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table
+      class="w-full text-sm text-left rtl:text-right text-gray-500"
+    >
+      <thead
+        class="text-xs text-gray-100 uppercase bg-zinc-700"
+      >
+        <tr>
+          <th scope="col" class="px-6 py-3">No</th>
+          <th scope="col" class="px-6 py-3">Username</th>
+          <th scope="col" class="px-6 py-3">Password</th>
+          <th scope="col" class="px-6 py-3">Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for user in users %}
+        <tr class="bg-white border-b border-gray-200 {% if user[1] == user_data[0] %} font-semibold {% endif %}">
+          <td class="px-6 py-4">{{ loop.index }}</td>
+          <td class="px-6 py-4">{{ user[1] }}</td>
+          <td class="px-6 py-4">{{ user[2] }}</td>
+          <td scope="row"
+            class="px-6 py-4 whitespace-nowrap">{{ user[3] }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
