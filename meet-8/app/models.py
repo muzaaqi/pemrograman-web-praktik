@@ -19,7 +19,7 @@ class Todos(db.Model):
     description = db.Column(db.Text, nullable=True)
     created_at = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, index=True, default=datetime.utcnow)
-    user_id = db.Column(db.BigInteger, db.ForeignKey('users.id'))
+    user_id = db.Column(db.BigInteger, db.ForeignKey(Users.id))
     
     def __repr__(self):
         return f'<Todos {self.todo}>'
