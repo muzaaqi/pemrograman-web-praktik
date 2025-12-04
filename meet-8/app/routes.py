@@ -21,7 +21,7 @@ def userDetail(id):
         return userController.delete(id)
 
 @app.route('/users', methods=['POST', 'GET'])
-def users():
+def addUsers():
     if request.method == 'GET':
         return userController.index()
     else:
