@@ -80,3 +80,16 @@ def update(id):
         print(e)
         return response.badRequest("Failed update user")
 
+def delete(id):
+    try:
+        user = Users.query.filter_by(id=id).first()
+        if not user:
+            return response.badRequest("User not found")
+        
+        db.session.delete(user)
+        db.session.commit()
+        
+        return response.ok([], "Success delete user")
+    except Exception as e:
+        print(e)
+        return response.badRequest("Failed delete user")
