@@ -1,5 +1,7 @@
+from flask import request
 from app.model.users import Users
 from app import response, app
+from app import db
 
 
 def transform(users):
@@ -41,3 +43,21 @@ def show(id):
     except Exception as e:
         print(e)
         return response.badRequest("Failed fetch user")
+
+def store():
+    try:
+        name = request.form.json('name')
+        email = request.form.json('email')
+        password = request.form.json('password')
+        
+        users = Users(name=name, email=email)
+        users.setPassword(password)
+        db.session.add(users)
+        db.session.commit()
+        
+        data = singleTransform(users)
+        return response.ok(data, "Success create new user")
+        
+    except Exception as e:
+        print(e)
+        return response.badRequest("Failed create new user")
