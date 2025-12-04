@@ -46,16 +46,16 @@ def show(id):
 
 def store():
     try:
-        name = request.form.json('name')
-        email = request.form.json('email')
-        password = request.form.json('password')
+        name = request.json.get('name')
+        email = request.json.get('email')
+        password = request.json.get('password')
         
-        users = Users(name=name, email=email)
-        users.setPassword(password)
-        db.session.add(users)
+        user = Users(name=name, email=email)
+        user.setPassword(password)
+        db.session.add(user)
         db.session.commit()
         
-        data = singleTransform(users)
+        data = singleTransform(user)
         return response.ok(data, "Success create new user")
         
     except Exception as e:
@@ -64,9 +64,9 @@ def store():
 
 def update(id):
     try:
-        name = request.form.json('name')
-        email = request.form.json('email')
-        password = request.form.json('password')
+        name = request.json.get('name')
+        email = request.json.get('email')
+        password = request.json.get('password')
         
         user = Users.query.filter_by(id=id).first()
         user.email = email
