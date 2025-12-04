@@ -61,3 +61,22 @@ def store():
     except Exception as e:
         print(e)
         return response.badRequest("Failed create new user")
+
+def update(id):
+    try:
+        name = request.form.json('name')
+        email = request.form.json('email')
+        password = request.form.json('password')
+        
+        user = Users.query.filter_by(id=id).first()
+        user.email = email
+        user.name = name
+        user.setPassword(password)
+        
+        db.session.commit()
+        
+        return response.ok([],"Success update user")
+    except Exception as e:
+        print(e)
+        return response.badRequest("Failed update user")
+
