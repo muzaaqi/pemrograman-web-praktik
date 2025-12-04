@@ -12,6 +12,14 @@ def transform(users):
         })
     return data
 
+def singleTransform(user):
+    data = {
+        'id': user.id,
+        'name': user.name,
+        'email': user.email
+    }
+    return data
+
 
 def index():
     try:
@@ -21,3 +29,15 @@ def index():
     except Exception as e:
         print(e)
         return response.badRequest("Failed fetch all users")
+
+def show(id):
+    try:
+        user = Users.query.filter_by(id=id).first()
+        if not user:
+            return response.badRequest([], "User not found")
+        
+        data = singleTransform(user)
+        return response.ok(data, "Success fetch user")
+    except Exception as e:
+        print(e)
+        return response.badRequest("Failed fetch user")
