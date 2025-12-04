@@ -9,3 +9,7 @@ def index():
 @app.route('/users')
 def users():
     return userController.index()
+
+@app.route('/users/<int:id>')
+def usesrDetail(id):
+    return userController.show(id)
