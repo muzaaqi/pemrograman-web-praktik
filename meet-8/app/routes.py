@@ -1,6 +1,7 @@
 from app import app
 from flask import request
 from app.controller import userController
+from app.controller import todoController
 
 @app.route('/')
 @app.route('/index')
@@ -27,10 +28,23 @@ def addUsers():
     else:
         return userController.store()
 
-@app.route('/todos', methods=['POST', 'GET'])
+@app.route('/login', methods=['POST'])
+def login():
+    return userController.login()
+
+@app.route('/todos', methods=['POST'])
 def todos():
-    from app.controller import todoController
+    return todoController.store()
+
+@app.route('/todos/<int:id>', methods=['GET', 'PUT', 'DELETE'])
+def todosAction(id):
     if request.method == 'GET':
-        return todoController.index()
-    else:
-        return todoController.store()
+        return todoController.show(id)
+    elif request.method == 'PUT':
+        return todoController.update(id)
+    elif request.method == 'DELETE':
+        return todoController.delete(id)
+
+@app.route('/todos/user/<int:user_id>', methods=['GET'])
+def todosByUser(user_id):
+    return todoController.show_by_user(user_id)
