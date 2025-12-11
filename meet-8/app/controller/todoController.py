@@ -13,3 +13,18 @@ def index():
     except Exception as e:
         print(e)
         return response.badRequest("Failed fetch all todos")
+
+def store():
+    try:
+        todo = request.json.get('todo')
+        desc = request.json.get('description')
+        user_id = request.json.get('user_id')
+        
+        new_todo = Todos(user_id=user_id, todo=todo, description=desc)
+        db.session.add(new_todo)
+        db.session.commit()
+        
+        return response.ok("", "Success create new todo!")
+    except Exception as e:
+        print(e)
+        return response.badRequest("Failed create new todo!")
