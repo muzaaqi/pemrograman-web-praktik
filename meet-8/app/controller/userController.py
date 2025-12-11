@@ -4,16 +4,6 @@ from app import response, app
 from app import db
 
 
-def transform(users):
-    data = []
-    for user in users:
-        data.append({
-            'id': user.id,
-            'name': user.name,
-            'email': user.email
-        })
-    return data
-
 def singleTransform(user):
     data = {
         'id': user.id,
@@ -22,6 +12,11 @@ def singleTransform(user):
     }
     return data
 
+def transform(users):
+    data = []
+    for user in users:
+        data.append(singleTransform(user))
+    return data
 
 def index():
     try:
@@ -75,7 +70,7 @@ def update(id):
         
         db.session.commit()
         
-        return response.ok([],"Success update user")
+        return response.ok(singleTransform(user),"Success update user")
     except Exception as e:
         print(e)
         return response.badRequest("Failed update user")
@@ -101,10 +96,10 @@ def login():
         
         user = Users.query.filter_by(email=email).first()
         if not user or not user.checkPassword(password):
-            return response.badRequest([], "Invalid email or password")
+            return response.badRequest("Invalid email or password")
 
         if not user.checkPassword(password):
-            return response.badRequest([], "Your credentials is invalid")
+            return response.badRequest("Your credentials is invalid")
         
         data = singleTransform(user)
         return response.ok(data, "Login successful")
