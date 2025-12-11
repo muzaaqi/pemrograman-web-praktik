@@ -2,4 +2,4 @@ flask
 python-dotenv
 flask-sqlalchemy
 flask-migrate
-pymydsql
+pymysql
