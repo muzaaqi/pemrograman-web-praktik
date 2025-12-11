@@ -1,7 +1,25 @@
 from flask import request
 from app import response, db
-from app.controller.userController import singleTransform, transform
+from app.controller import userController
 from app.model.todo import Todos
+
+def singleTransform(todo):
+    data = {
+        'id': todo.id,
+        'user_id': todo.user_id,
+        'todo': todo.todo,
+        'description': todo.description,
+        'created_at': todo.created_at,
+        'updated_at': todo.updated_at,
+        'user': userController.singleTransform(todo.users, withTodos=False)
+    }
+    return data
+
+def transform(todos):
+    data = []
+    for todo in todos:
+        data.append(singleTransform(todo))
+    return data
 
 
 def index():
@@ -70,3 +88,4 @@ def delete(id):
     except Exception as e:
         print(e)
         return response.badRequest("Failed delete todo")
+
