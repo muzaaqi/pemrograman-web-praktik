@@ -26,3 +26,11 @@ def addUsers():
         return userController.index()
     else:
         return userController.store()
+
+@app.route('/todos', methods=['POST', 'GET'])
+def todos():
+    from app.controller import todoController
+    if request.method == 'GET':
+        return todoController.index()
+    else:
+        return todoController.store()
