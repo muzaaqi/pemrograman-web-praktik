@@ -56,3 +56,17 @@ def show(id):
     except Exception as e:
         print(e)
         return response.badRequest("Failed fetch todo")
+
+def delete(id):
+    try:
+        todo = Todos.query.filter_by(id=id).first()
+        if not todo:
+            return response.badRequest([], "Todo not found")
+        
+        db.session.delete(todo)
+        db.session.commit()
+        
+        return response.ok("", "Success delete todo")
+    except Exception as e:
+        print(e)
+        return response.badRequest("Failed delete todo")
