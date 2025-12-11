@@ -1,6 +1,6 @@
 from flask import request
 from app import response, db
-from app.controller.userController import transform
+from app.controller.userController import singleTransform, transform
 from app.model.todo import Todos
 
 
@@ -44,3 +44,15 @@ def update(id):
     except Exception as e:
         print(e)
         return response.badRequest("Failed update todo!")
+
+def show(id):
+    try:
+        todo = Todos.query.filter_by(id=id).first()
+        if not todo:
+            return response.badRequest([], "Todo not found")
+        
+        data = singleTransform(todo)
+        return response.ok(data, "Success fetch todo")
+    except Exception as e:
+        print(e)
+        return response.badRequest("Failed fetch todo")
